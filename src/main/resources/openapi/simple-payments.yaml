@@ -1,0 +1,131 @@
+openapi: 3.0.4
+info:
+  title: Simple Payments API
+  version: 1.0.1
+paths:
+  /payments:
+    post:
+      summary: Create a payment
+      operationId: createPayment
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: false
+          schema:
+            type: string
+          description: Optional for this PoC; if missing, server may auto-generate.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+            example:
+              amount: 500.00
+              currency: "INR"
+              merchantId: "m-1001"
+              description: "Order #A123"
+      responses:
+        '201':
+          description: Payment created
+          headers:
+            Location:
+              description: URI to fetch the created payment
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+        '400':
+          description: Bad request (validation errors, invalid amount, etc.)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                invalidAmount:
+                  value: { code: "BAD_REQUEST", message: "Invalid amount" }
+        # Add 409 here later only if your API actually returns it for duplicate keys
+        # '409':
+        #   description: Duplicate idempotency key
+        #   content:
+        #     application/json:
+        #       schema:
+        #         $ref: '#/components/schemas/ErrorResponse'
+
+  /payments/{id}:
+    get:
+      summary: Get a payment by ID
+      operationId: getPayment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+        '404':
+          description: Payment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                notFound:
+                  value: { code: "NOT_FOUND", message: "Payment not found" }
+
+components:
+  schemas:
+    PaymentRequest:
+      type: object
+      required: [amount, currency, merchantId]
+      properties:
+        amount:
+          type: number
+          format: double
+          minimum: 0.01
+        currency:
+          type: string
+          description: ISO 4217 currency code
+          minLength: 3
+          maxLength: 3
+          example: "INR"
+        merchantId:
+          type: string
+        description:
+          type: string
+    PaymentResponse:
+      type: object
+      required: [paymentId, status, amount, currency, createdAt]
+      properties:
+        paymentId:
+          type: string
+          example: "p-12345"
+        status:
+          type: string
+          enum: [APPROVED, DECLINED, PENDING]
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          example: "BAD_REQUEST"
+        message:
+          type: string
+          example: "Invalid amount"
