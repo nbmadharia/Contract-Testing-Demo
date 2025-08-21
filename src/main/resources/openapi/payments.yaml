@@ -1,0 +1,93 @@
+openapi: 3.0.4
+info:
+  title: Payments API (v1)
+  version: 1.0.0
+paths:
+  /payments:
+    post:
+      summary: Create a payment
+      operationId: createPayment
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+            example:
+              amount: 500.00
+              currency: INR
+              merchantId: "m-1001"
+              description: "Order #A123"
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: URI to fetch the created payment
+              schema: { type: string }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorResponse' }
+        '409':
+          description: Duplicate idempotency key
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+  /payments/{id}:
+    get:
+      summary: Get a payment
+      operationId: getPayment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PaymentResponse' }
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+components:
+  schemas:
+    PaymentRequest:
+      type: object
+      required: [amount, currency, merchantId]
+      properties:
+        amount: { type: number, format: double, minimum: 0.01 }
+        currency: { type: string, minLength: 3, maxLength: 3, example: "INR" }
+        merchantId: { type: string }
+        description: { type: string }
+    PaymentResponse:
+      type: object
+      required: [paymentId, status, amount, currency, createdAt]
+      properties:
+        paymentId: { type: string, example: "p-12345" }
+        status: { type: string, enum: [APPROVED, DECLINED, PENDING] }
+        amount: { type: number, format: double }
+        currency: { type: string }
+        createdAt: { type: string, format: date-time }
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: string }
+        message: { type: string }
