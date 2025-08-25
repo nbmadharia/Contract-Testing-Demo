@@ -1,0 +1,22 @@
+It seems like you're experiencing issues with your API testing using a tool like Specmatic or a similar framework. The errors indicate that the API is not behaving as expected:
+
+1. For the "Create a payment" endpoint (POST /payments), it should return a status code of 201 Created, but instead, it's returning a 400 Bad Request.
+2. For the "Get a payment by ID" endpoint (GET /payments/{id}), it should return a status code of 200 OK when a valid payment ID is provided, but it's returning a 404 Not Found.
+
+These errors suggest that there might be issues with how your API handles incoming requests, particularly regarding validation and resource existence:
+
+1. For the "Create a payment" endpoint:
+   - Check if all required fields are being correctly validated.
+   - Ensure that the input data is in the correct format as defined in your API schema.
+
+2. For the "Get a payment by ID" endpoint:
+   - Verify that your application can properly locate and retrieve a payment using a given ID.
+   - Make sure that there's a mechanism to handle cases where no payment with the specified ID exists, returning an appropriate error response (404 Not Found in this case).
+
+To resolve these issues:
+
+- Review your API implementation for any logic errors or missing validations.
+- Ensure your test cases cover various scenarios, including valid and invalid inputs, to help identify areas that need improvement.
+- If using a framework like Specmatic, consult the documentation for guidance on how to properly configure and execute tests against your API.
+
+Remember to update your API code based on the findings and rerun your tests to validate whether the issues have been resolved.

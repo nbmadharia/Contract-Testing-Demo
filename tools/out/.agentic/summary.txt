@@ -1,0 +1,22 @@
+Here is the summary of Specmatic/JUnit failures by endpoint and cause:
+
+**Failures Summary**
+
+| Endpoint | Cause |
+| --- | --- |
+| POST /payments | (a) API behavior bug: Expected status 201, but got status 400 |
+
+There are 13 failures reported for the `contractTest()` method in the `ContractTests` suite. All of them fail with the same expected and actual values:
+
+* Expected response status code: 201
+* Actual response status code: 400
+
+This suggests that there is a bug in the API behavior, causing it to return an HTTP error (status code 400) instead of the expected success response (status code 201).
+
+**Actionable List**
+
+1. Investigate the API behavior for the `POST /payments` endpoint.
+2. Check if the API's business logic or validation rules are incorrect, causing the status code to be returned as 400.
+3. Update the API behavior accordingly to return a successful response (status code 201) when a payment is created successfully.
+
+Note: The other possible causes (wrong OpenAPI spec, Specmatic config, test data) do not seem to be relevant in this case, based on the provided information.

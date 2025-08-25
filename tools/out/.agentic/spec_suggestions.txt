@@ -1,0 +1,17 @@
+```diff
+--- a/src/main/resources/openapi/simple-payments.yaml
++++ b/src/main/resources/openapi/simple-payments.yaml
+@@ -35,6 +35,7 @@ paths:
+         '400':
+           description: Bad request (validation errors, invalid amount, etc.)
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/ErrorResponse'
++              examples:
++                invalidAmount:
++                  value: { code: "BAD_REQUEST", message: "Invalid amount" }
+ 
+   /payments/{id}:
+     get:
+```
