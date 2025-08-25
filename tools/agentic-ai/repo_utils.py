@@ -52,3 +52,32 @@ def read_specs(root: Path, keyword: str, limits: dict) -> str:
 def read_if_exists(root: Path, rel: str) -> str:
     p = root / rel
     return f"\n--- FILE: {p} ---\n{_read_file(p, 50000)}\n" if p.exists() else ""
+
+
+# tools/agentic-ai/repo_utils.py (append at end)
+
+def build_file_index(root: Path, max_paths: int = 300) -> str:
+    """
+    Returns a plain list of relevant file paths (relative to repo root).
+    Prioritize Java, OpenAPI, config, and test sources.
+    """
+    exts = {".java", ".yml", ".yaml", ".json"}
+    roots = [
+        "src/main/java", "src/main/resources",
+        "src/test/java", "src/test/resources",
+        ".",
+    ]
+    paths = []
+    for base in roots:
+        p = (root / base)
+        if not p.exists(): continue
+        for f in p.rglob("*"):
+            if not f.is_file(): continue
+            if (f.suffix.lower() in exts) or f.name in {"pom.xml", "specmatic.json", "specmatic.yaml"}:
+                rel = f.relative_to(root)
+                paths.append(str(rel))
+                if len(paths) >= max_paths:
+                    break
+        if len(paths) >= max_paths:
+            break
+    return "\n".join(paths)

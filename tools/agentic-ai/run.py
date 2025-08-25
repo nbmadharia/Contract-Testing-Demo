@@ -6,6 +6,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--propose-patches", action="store_true")
     ap.add_argument("--config", default="config.yaml")
+    ap.add_argument("--require-diffs", action="store_true",
+                    help="Exit with error if no actual code/diffs are produced")
+    ap.add_argument("--fast", action="store_true",
+                    help="Smaller context + num_ctx for speed")
     ap.add_argument("--verbose", action="store_true",
                     help="Print extra debug info")
     args = ap.parse_args()
