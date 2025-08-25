@@ -19,7 +19,30 @@ Features:
 
 To run -> ./mvnw -Dtest=ContractTests test
 
-v2.0 – Planned Roadmap
+v2.0 – Current
+
+- run the Specmatic contract tests automatically
+- parse failures from Surefire XML and specmatic.log,
+- generate concrete fixes as code (Java) or OpenAPI/Specmatic config diffs
+- save the raw output + unified diffs for review and app.
+
+
+-------------------------- SETUP v2.0-----------------
+
+cd tools/agentic-ai
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+
+--------------------------- Run ----------------------
+
+export AGENT_FAST=1
+export AGENT_REQUIRE_DIFFS=1
+
+python run.py --propose-patches --verbose
+
+==================== PENDING ==============
 
 Goal
 
@@ -34,23 +57,7 @@ Planned Enhancements
 - MCP (Model Context Protocol):
 - Expose safe tools to the model:
 
-Run Specmatic stubs/tests
 
-- Execute mvn test
-- Apply code scaffolding
-- Payments domain focus:
-    -Generate production-grade code following:
-    -Spring Boot + REST
-- Microservices architecture
-- Domain patterns for payments (idempotency, error codes, status handling)
-
-Example AI Agent Flow
-
-- Developer provides a new OpenAPI spec for, say, Refunds API.
-- Agent uses RAG + LangChain4j to scaffold controller, service, DTOs.
--  Agent triggers Specmatic tests via MCP.
-- If tests fail, agent suggests/fixes code until contract is green.
-- Final output is production-ready, spec-compliant code.
 
 
 
