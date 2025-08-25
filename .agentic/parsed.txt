@@ -1,0 +1,224 @@
+== Parsed Test Results ==
+Suite: com.example.payments_api.PaymentsApiApplicationTests | tests=1 failures=0 errors=0
+Suite: com.example.payments_api.contract.ContractTests | tests=25 failures=13 errors=0
+  FAIL: contractTest()[3] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[4] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[9] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[10] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[11] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[12] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[15] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[16] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[21] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[22] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[23] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[24] : Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  FAIL: contractTest()[25] : Testing scenario "Get a payment by ID. Response: Payment details"
+API: GET /payments/(id:string) -> 200
+
+  >> RESPONSE.STATUS
+  
+     Expected status 200, actual was status 404
+    DETAILS: java.lang.AssertionError: 
+Testing scenario "Get a payment by ID. Response: Payment details"
+API: GET /payments/(id:string) -> 200
+
+  >> RESPONSE.STATUS
+  
+     Expected status 200, actual was status 404
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)

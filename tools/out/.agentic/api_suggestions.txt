@@ -1,0 +1,13 @@
+```diff
+--- a/src/main/java/com/example/payments_api/controller/PaymentController.java
++++ b/src/main/java/com/example/payments_api/controller/PaymentController.java
+@@ -39,7 +39,7 @@ public class PaymentController {
+     @PostMapping
+     public ResponseEntity<?> create(
+             // make header OPTIONAL for the simple spec smoke test
+-            @RequestHeader(value = "Idempotency-Key", required = false) String idempotencyKey,
++            @RequestHeader(value = "Idempotency-Key", required = true) String idempotencyKey,
+             @Valid @RequestBody PaymentRequest request) {
+```
+
+This change ensures that the `Idempotency-Key` header is required for the POST endpoint, which should align with the expectations of your Specmatic tests.

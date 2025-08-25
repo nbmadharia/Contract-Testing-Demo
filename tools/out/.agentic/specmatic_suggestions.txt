@@ -1,0 +1,15 @@
+Here is a minimal config edit (in YAML) that should fix the issues:
+
+```yaml
+version: 2
+contracts:
+  - provides:
+      - src/main/resources/openapi/payments.yaml
+specmatic:
+  unified-diff:
+    include-line-numbers: true
+```
+
+This will enable the production of unified diffs with exact line numbers and will also include the `@@` hunk markers. 
+
+If you're still facing issues, it's possible that the problem is not with the config but rather with the actual test results. In this case, let me know and I can help you with debugging.

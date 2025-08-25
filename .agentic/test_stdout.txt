@@ -1,0 +1,1224 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-25T14:33:14.346+05:30  INFO 52198 --- [payments-api] [           main] o.a.maven.surefire.booter.ForkedBooter   : Starting ForkedBooter v3.5.3 using Java 17.0.8 with PID 52198 (started by naman in /Users/naman/Downloads/payments-api)
+2025-08-25T14:33:14.348+05:30  INFO 52198 --- [payments-api] [           main] o.a.maven.surefire.booter.ForkedBooter   : No active profile set, falling back to 1 default profile: "default"
+2025-08-25T14:33:15.231+05:30  INFO 52198 --- [payments-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-25T14:33:15.247+05:30  INFO 52198 --- [payments-api] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-25T14:33:15.247+05:30  INFO 52198 --- [payments-api] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-25T14:33:15.298+05:30  INFO 52198 --- [payments-api] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-25T14:33:15.299+05:30  INFO 52198 --- [payments-api] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 913 ms
+2025-08-25T14:33:15.664+05:30  INFO 52198 --- [payments-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-25T14:33:15.671+05:30  INFO 52198 --- [payments-api] [           main] o.a.maven.surefire.booter.ForkedBooter   : Started ForkedBooter in 1.719 seconds (process running for 2.495)
+API Specification Summary: src/main/resources/openapi/simple-payments.yaml
+  OpenAPI Version: 3.0.4
+  API Paths: 2, API Operations: 2
+  Schema components: 3, Security Schemes: none
+
+WARNING: Ignoring response example named invalidAmount for test or stub data, because no associated request example named invalidAmount was found.
+WARNING: Ignoring response example named notFound for test or stub data, because no associated request example named notFound was found.
+
+2025-08-25T14:33:16.879+05:30  INFO 52198 --- [payments-api] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-25T14:33:16.880+05:30  INFO 52198 --- [payments-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-25T14:33:16.881+05:30  INFO 52198 --- [payments-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Failed to query swaggerUI, status code: 404
+EndpointsAPI and SwaggerUI URL missing; cannot calculate actual coverage
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.7
+    POST /payments
+    Idempotency-Key: TEBCT
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 6.028666361916748E307,
+        "currency": "TGI",
+        "merchantId": "YECIJ",
+        "description": "HTLIF"
+    }
+
+  Response at 2025-8-25 2:33:17.105
+    201 Created
+    Location: /payments/p-f38f4406-f31a-4609-8df5-40dc153470b3
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-f38f4406-f31a-4609-8df5-40dc153470b3",
+        "status": "DECLINED",
+        "amount": 6.028666361916748E307,
+        "currency": "TGI",
+        "createdAt": "2025-08-25T14:33:17.081145+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.155
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 1.0105665466553101E308,
+        "currency": "TGI",
+        "merchantId": "EHTOB",
+        "description": "BPTDS"
+    }
+
+  Response at 2025-8-25 2:33:17.165
+    201 Created
+    Location: /payments/p-51e6b83b-501b-4a5b-a610-cf054c0cad4d
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-51e6b83b-501b-4a5b-a610-cf054c0cad4d",
+        "status": "DECLINED",
+        "amount": 1.0105665466553101E308,
+        "currency": "TGI",
+        "createdAt": "2025-08-25T14:33:17.163233+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.169
+    POST /payments
+    Idempotency-Key: DSXFM
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "KJQ",
+        "merchantId": "UIBDF",
+        "description": "UILPB"
+    }
+
+  Response at 2025-8-25 2:33:17.193
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.206
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "SYH",
+        "merchantId": "YSDLE",
+        "description": "DBEII"
+    }
+
+  Response at 2025-8-25 2:33:17.212
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.215
+    POST /payments
+    Idempotency-Key: CILVM
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 6.745031205261442E307,
+        "currency": "RME",
+        "merchantId": "XMTQL",
+        "description": "WBENM"
+    }
+
+  Response at 2025-8-25 2:33:17.221
+    201 Created
+    Location: /payments/p-4066ba18-837f-46e1-850f-9bdb08fc8a20
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-4066ba18-837f-46e1-850f-9bdb08fc8a20",
+        "status": "DECLINED",
+        "amount": 6.745031205261442E307,
+        "currency": "RME",
+        "createdAt": "2025-08-25T14:33:17.219236+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.223
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 2.4986046045826827E307,
+        "currency": "RME",
+        "merchantId": "UWLHU",
+        "description": "UQGQV"
+    }
+
+  Response at 2025-8-25 2:33:17.228
+    201 Created
+    Location: /payments/p-1338b4a7-c9e4-452e-8bd6-d57d1d74f181
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-1338b4a7-c9e4-452e-8bd6-d57d1d74f181",
+        "status": "DECLINED",
+        "amount": 2.4986046045826827E307,
+        "currency": "RME",
+        "createdAt": "2025-08-25T14:33:17.226526+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.230
+    POST /payments
+    Idempotency-Key: DHEWF
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 4.049825136722133E307,
+        "currency": "HON",
+        "merchantId": "NCLLJ",
+        "description": "KHHDV"
+    }
+
+  Response at 2025-8-25 2:33:17.235
+    201 Created
+    Location: /payments/p-b46daa2c-760a-4b20-8e9c-9116e14cf8eb
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-b46daa2c-760a-4b20-8e9c-9116e14cf8eb",
+        "status": "DECLINED",
+        "amount": 4.049825136722133E307,
+        "currency": "HON",
+        "createdAt": "2025-08-25T14:33:17.233797+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.238
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 1.0039804344770109E308,
+        "currency": "BHQ",
+        "merchantId": "DYARD",
+        "description": "KWLBW"
+    }
+
+  Response at 2025-8-25 2:33:17.243
+    201 Created
+    Location: /payments/p-160381da-f008-4136-ac38-9b40483b6790
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-160381da-f008-4136-ac38-9b40483b6790",
+        "status": "DECLINED",
+        "amount": 1.0039804344770109E308,
+        "currency": "BHQ",
+        "createdAt": "2025-08-25T14:33:17.24117+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.245
+    POST /payments
+    Idempotency-Key: ILDDK
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "TGI",
+        "merchantId": "FLJNO",
+        "description": "RRVLO"
+    }
+
+  Response at 2025-8-25 2:33:17.250
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.253
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "TGI",
+        "merchantId": "NYMPR",
+        "description": "PNVPR"
+    }
+
+  Response at 2025-8-25 2:33:17.257
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.260
+    POST /payments
+    Idempotency-Key: RJKNG
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "RME",
+        "merchantId": "MBKSI",
+        "description": "YMAWY"
+    }
+
+  Response at 2025-8-25 2:33:17.265
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.268
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "RME",
+        "merchantId": "YQXRK",
+        "description": "BTCQA"
+    }
+
+  Response at 2025-8-25 2:33:17.272
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.276
+    POST /payments
+    Idempotency-Key: NNEVX
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 4.9926557002941014E306,
+        "currency": "PUD",
+        "merchantId": "FIDPD"
+    }
+
+  Response at 2025-8-25 2:33:17.281
+    201 Created
+    Location: /payments/p-d5e6a9c0-4c41-46d6-a556-df6e2bc0fcfe
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-d5e6a9c0-4c41-46d6-a556-df6e2bc0fcfe",
+        "status": "DECLINED",
+        "amount": 4.9926557002941014E306,
+        "currency": "PUD",
+        "createdAt": "2025-08-25T14:33:17.279481+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.283
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 1.2212630029425172E308,
+        "currency": "PUD",
+        "merchantId": "APRFT"
+    }
+
+  Response at 2025-8-25 2:33:17.288
+    201 Created
+    Location: /payments/p-dbf0f243-a80f-4d16-94b6-a7813582da6e
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-dbf0f243-a80f-4d16-94b6-a7813582da6e",
+        "status": "DECLINED",
+        "amount": 1.2212630029425172E308,
+        "currency": "PUD",
+        "createdAt": "2025-08-25T14:33:17.286165+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.290
+    POST /payments
+    Idempotency-Key: HIDAK
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "KFR",
+        "merchantId": "AFMGK"
+    }
+
+  Response at 2025-8-25 2:33:17.294
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.297
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "WPP",
+        "merchantId": "VUEVG"
+    }
+
+  Response at 2025-8-25 2:33:17.302
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.305
+    POST /payments
+    Idempotency-Key: JWBCB
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 4.734157668181417E307,
+        "currency": "OPR",
+        "merchantId": "FHPVA"
+    }
+
+  Response at 2025-8-25 2:33:17.310
+    201 Created
+    Location: /payments/p-c69b1292-9404-44de-98fe-955df846220a
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-c69b1292-9404-44de-98fe-955df846220a",
+        "status": "DECLINED",
+        "amount": 4.734157668181417E307,
+        "currency": "OPR",
+        "createdAt": "2025-08-25T14:33:17.308784+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.312
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 9.642812221875205E307,
+        "currency": "OPR",
+        "merchantId": "DDABT"
+    }
+
+  Response at 2025-8-25 2:33:17.317
+    201 Created
+    Location: /payments/p-527c5da5-da68-4547-a5ed-c94e0e4b6014
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-527c5da5-da68-4547-a5ed-c94e0e4b6014",
+        "status": "DECLINED",
+        "amount": 9.642812221875205E307,
+        "currency": "OPR",
+        "createdAt": "2025-08-25T14:33:17.315491+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.319
+    POST /payments
+    Idempotency-Key: SOIIB
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 5.822362218179331E307,
+        "currency": "EVI",
+        "merchantId": "MJRAC"
+    }
+
+  Response at 2025-8-25 2:33:17.324
+    201 Created
+    Location: /payments/p-1e17adb3-835a-4182-b023-3e779a791e62
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-1e17adb3-835a-4182-b023-3e779a791e62",
+        "status": "DECLINED",
+        "amount": 5.822362218179331E307,
+        "currency": "EVI",
+        "createdAt": "2025-08-25T14:33:17.323181+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.327
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 1.4101865056267708E308,
+        "currency": "URB",
+        "merchantId": "RCJRF"
+    }
+
+  Response at 2025-8-25 2:33:17.332
+    201 Created
+    Location: /payments/p-edad6432-1e92-49d3-b13c-75c6ebec749f
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "paymentId": "p-edad6432-1e92-49d3-b13c-75c6ebec749f",
+        "status": "DECLINED",
+        "amount": 1.4101865056267708E308,
+        "currency": "URB",
+        "createdAt": "2025-08-25T14:33:17.330671+05:30"
+    }
+
+ Scenario: POST /payments -> 201 has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.334
+    POST /payments
+    Idempotency-Key: WWECY
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "PUD",
+        "merchantId": "XCBAX"
+    }
+
+  Response at 2025-8-25 2:33:17.339
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.341
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "PUD",
+        "merchantId": "NSGYC"
+    }
+
+  Response at 2025-8-25 2:33:17.346
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.348
+    POST /payments
+    Idempotency-Key: RYPUP
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "OPR",
+        "merchantId": "WRDDS"
+    }
+
+  Response at 2025-8-25 2:33:17.353
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.355
+    POST /payments
+    Specmatic-Response-Code: 201
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+    
+    {
+        "amount": 0.01,
+        "currency": "OPR",
+        "merchantId": "EIQRT"
+    }
+
+  Response at 2025-8-25 2:33:17.360
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Connection: close
+    
+    {
+        "code": "BAD_REQUEST",
+        "message": "Invalid input"
+    }
+
+ Scenario: POST /payments -> 201 has FAILED
+Reason: Testing scenario "Create a payment. Response: Payment created"
+	API: POST /payments -> 201
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 201, actual was status 400
+
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-8-25 2:33:17.363
+    GET /payments/ACCFQ
+    Specmatic-Response-Code: 200
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: NOT SENT
+    
+    
+
+  Response at 2025-8-25 2:33:17.370
+    404 Not Found
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Mon, 25 Aug 2025 09:03:17 GMT
+    Keep-Alive: timeout=60
+    Connection: keep-alive
+    
+    {
+        "code": "NOT_FOUND",
+        "message": "Payment not found"
+    }
+
+ Scenario: GET /payments/(id:string) -> 200 has FAILED
+Reason: Testing scenario "Get a payment by ID. Response: Payment details"
+	API: GET /payments/(id:string) -> 200
+	
+	  >> RESPONSE.STATUS
+	  
+	     Expected status 200, actual was status 404
+
+
+Could not load report configuration, coverage will be calculated but no coverage threshold will be enforced
+
+|--------------------------------------------------------------------------|
+| SPECMATIC API COVERAGE SUMMARY                                           |
+|--------------------------------------------------------------------------|
+| coverage | path           | method | response | #exercised | result      |
+|----------|----------------|--------|----------|------------|-------------|
+| 50%      | /payments      | POST   | 201      | 24         | covered     |
+|          |                |        | 400      | 0          | not covered |
+| 50%      | /payments/{id} | GET    | 200      | 1          | covered     |
+|          |                |        | 404      | 0          | not covered |
+|--------------------------------------------------------------------------|
+| 50% API Coverage reported from 2 Paths                                   |
+|--------------------------------------------------------------------------|
+
+
+
+Generating HTML report...
+Successfully generated HTML report in ./build/reports/specmatic/html
+Saving Coverage Report json to ./build/reports/specmatic ...
+2025-08-25T14:33:17.735+05:30  INFO 52198 --- [payments-api] [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-25T14:33:19.750+05:30  INFO 52198 --- [payments-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-25T14:33:19.750+05:30 ERROR 52198 --- [payments-api] [o-8080-Acceptor] org.apache.tomcat.util.net.Acceptor      : Socket accept failed
+
+java.nio.channels.AsynchronousCloseException: null
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.end(ServerSocketChannelImpl.java:376) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:399) ~[na:na]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:537) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:72) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.net.Acceptor.run(Acceptor.java:127) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+[ERROR] Tests run: 25, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 5.984 s <<< FAILURE! -- in com.example.payments_api.contract.ContractTests
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[3] -- Time elapsed: 0.034 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[4] -- Time elapsed: 0.008 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[9] -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[10] -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[11] -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[12] -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[15] -- Time elapsed: 0.006 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[16] -- Time elapsed: 0.008 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[21] -- Time elapsed: 0.006 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[22] -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[23] -- Time elapsed: 0.006 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[24] -- Time elapsed: 0.006 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.example.payments_api.contract.ContractTests.contractTest()[25] -- Time elapsed: 0.009 s <<< FAILURE!
+java.lang.AssertionError: 
+Testing scenario "Get a payment by ID. Response: Payment details"
+API: GET /payments/(id:string) -> 200
+
+  >> RESPONSE.STATUS
+  
+     Expected status 200, actual was status 404
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:413)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] Failures: 
+[ERROR]   ContractTests.contractTest()[10] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[11] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[12] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[15] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[16] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[21] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[22] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[23] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[24] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[25] Testing scenario "Get a payment by ID. Response: Payment details"
+API: GET /payments/(id:string) -> 200
+
+  >> RESPONSE.STATUS
+  
+     Expected status 200, actual was status 404
+[ERROR]   ContractTests.contractTest()[3] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[4] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR]   ContractTests.contractTest()[9] Testing scenario "Create a payment. Response: Payment created"
+API: POST /payments -> 201
+
+  >> RESPONSE.STATUS
+  
+     Expected status 201, actual was status 400
+[ERROR] Tests run: 25, Failures: 13, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project payments-api: There are test failures.
+[ERROR] 
+[ERROR] See /Users/naman/Downloads/payments-api/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
