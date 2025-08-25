@@ -1,0 +1,18 @@
+repo_root: "../../"                      # relative to tools/agentic-ai/
+test_command: "./mvnw -q -Dtest=ContractTests test"
+surefire_dir: "target/surefire-reports"  # produced by mvn test
+specmatic_log: "specmatic.log"           # optional; adjacent to target/
+spec_keyword: "openapi"                  # read files containing this in path
+specmatic_config: "specmatic.yaml"       # if present at repo root
+
+ollama:
+  base_url: "http://localhost:11434"
+  planner_model: "llama3.1"          # for summaries/plans
+  coder_model: "qwen2.5-coder"       # for code/spec diffs
+  critic_model: "llama3.1"           # for sanity-check (optional)
+
+limits:
+  files_per_section: 60                  # cap on files read for context
+  max_context_chars: 120000              # guardrails
+
+output_dir: ".agentic"
