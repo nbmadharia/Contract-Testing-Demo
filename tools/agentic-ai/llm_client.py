@@ -15,7 +15,7 @@ class OllamaClient:
             "model": model,
             "prompt": prompt,
             "stream": False,
-            "options": {"num_ctx": 8192, "temperature": 0.2}
+            "options": {"num_ctx": 2048, "temperature": 0.7}
         }
         r = requests.post(f"{self.base}/api/generate", json=payload, timeout=600)
         r.raise_for_status()

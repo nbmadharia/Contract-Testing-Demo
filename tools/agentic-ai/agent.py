@@ -8,12 +8,13 @@ from diff_utils import extract_unified_diffs
 import yaml
 
 class Agent:
-    def __init__(self, config_path: str):
+    def __init__(self, config_path: str, verbose: bool = False):
         with open(config_path, "r") as f:
             self.cfg = yaml.safe_load(f)
         self.repo_root = pathlib.Path(self.cfg["repo_root"]).resolve()
         self.output_dir = ensure_outdir(self.repo_root / self.cfg.get("output_dir", ".agentic"))
         self.client = OllamaClient(self.cfg["ollama"])
+        self.verbose = verbose
 
     def run_once(self, propose_patches: bool = False):
         # 1) Run tests
@@ -39,18 +40,35 @@ class Agent:
         # 4) LLM: summaries & suggestions
         prompts = build_prompts(parsed, code_ctx, spec_ctx, cfg_ctx)
         print(Fore.CYAN + ">> Summarizing failures..." + Style.RESET_ALL)
+
+        if self.verbose: print("[DEBUG] Summarizing failures prompt size 1:", len(prompts["summary"]))
+
         llm_summary = self.client.complete("planner_model", prompts["summary"])
         print(Fore.CYAN + ">> Suggesting API changes..." + Style.RESET_ALL)
+
+        if self.verbose: print("[DEBUG] API prompt size: 2", len(prompts["api"]))
         api_suggestions = self.client.complete("coder_model", prompts["api"])
         print(Fore.CYAN + ">> Suggesting Spec changes..." + Style.RESET_ALL)
+
+        if self.verbose:
+            print("[DEBUG] Summarizing failures prompt size 3:", len(prompts["summary"]))
+
         spec_suggestions = self.client.complete("coder_model", prompts["spec"])
         print(Fore.CYAN + ">> Suggesting Specmatic config..." + Style.RESET_ALL)
+
+        if self.verbose:
+            print("[DEBUG] Summarizing failures prompt size 4:", len(prompts["summary"]))
+
         specmatic_suggestions = self.client.complete("planner_model", prompts["specmatic"])
 
         # 5) Optional diffs
         proposed_patches = {}
         if propose_patches:
             print(Fore.CYAN + ">> Asking for unified diffs..." + Style.RESET_ALL)
+
+            if self.verbose:
+                print("[DEBUG] Summarizing failures prompt size 5:", len(prompts["summary"]))
+
             diff_text = self.client.complete("coder_model", prompts["diffs"])
             proposed_patches = extract_unified_diffs(diff_text)
             patches_dir = self.output_dir / "patches"

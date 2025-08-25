@@ -12,7 +12,7 @@ ollama:
   critic_model: "llama3.1"           # for sanity-check (optional)
 
 limits:
-  files_per_section: 60                  # cap on files read for context
-  max_context_chars: 120000              # guardrails
+  files_per_section: 6              # cap on files read for context
+  max_context_chars: 12000              # guardrails
 
-output_dir: ".agentic"
+output_dir: "tools/out/.agentic"
