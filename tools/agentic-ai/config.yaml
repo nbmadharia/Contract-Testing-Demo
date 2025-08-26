@@ -1,15 +1,15 @@
-repo_root: "../../"                      # relative to tools/agentic-ai/
+repo_root: "../../"
 test_command: "./mvnw -q -Dtest=ContractTests test"
-surefire_dir: "target/surefire-reports"  # produced by mvn test
-specmatic_log: "specmatic.log"           # optional; adjacent to target/
-spec_keyword: "openapi"                  # read files containing this in path
-specmatic_config: "specmatic.yaml"       # if present at repo root
+surefire_dir: "target/surefire-reports"
+specmatic_log: "specmatic.log"
+spec_keyword: "openapi"
+specmatic_config: "specmatic.yaml"
 
 ollama:
   base_url: "http://localhost:11434"
   planner_model: "llama3.1"          # for summaries/plans
   coder_model: "qwen2.5-coder"       # for code/spec diffs
-  critic_model: "llama3.1"           # for sanity-check (optional)
+  critic_model: "llama3.1"
 
 limits:
   files_per_section: 6              # cap on files read for context

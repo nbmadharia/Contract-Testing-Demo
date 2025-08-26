@@ -1,5 +1,3 @@
-# tools/agentic-ai/diff_utils.py
-
 import re
 
 BLOCK = re.compile(r"```diff\s+(.*?)```", re.DOTALL | re.IGNORECASE)
