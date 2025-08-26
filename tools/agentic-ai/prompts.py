@@ -1,5 +1,3 @@
-# tools/agentic-ai/prompts.py
-
 DIFF_RULES = """
 REQUIREMENTS (very important):
 - Prefer UNIFIED DIFFS inside ```diff fences:

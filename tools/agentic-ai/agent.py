@@ -27,21 +27,19 @@ class Agent:
         self.client     = OllamaClient(self.cfg["ollama"])
         self.verbose    = verbose
 
-        # fast mode (for demos): env > config > ctor arg default
         if fast is None:
             env_fast = os.getenv("AGENT_FAST", "").strip().lower() in {"1","true","yes","on"}
             self.fast = env_fast or bool(self.cfg.get("fast", False))
         else:
             self.fast = bool(fast)
 
-        # require diffs: fail the run if no code was produced
         if require_diffs is None:
             env_req = os.getenv("AGENT_REQUIRE_DIFFS", "").strip().lower() in {"1","true","yes","on"}
             self.require_diffs = env_req or bool(self.cfg.get("require_diffs", False))
         else:
             self.require_diffs = bool(require_diffs)
 
-        # demo-friendly trimming limits used only in fast mode
+        # demo trimming limits for fast mode onlyy
         self.fast_limits = {
             "summary":   int(os.getenv("AGENT_FAST_SUMMARY",   "3500")),
             "api":       int(os.getenv("AGENT_FAST_API",       "6000")),
@@ -50,7 +48,7 @@ class Agent:
             "diffs":     int(os.getenv("AGENT_FAST_DIFFS",     "5000")),
         }
 
-    # ---------------- helpers ----------------
+    # ---------------- helpers ------------------------------
 
     def _llm_call(self, which: str, prompt: str, label: str) -> str:
         """
@@ -121,14 +119,14 @@ class Agent:
 
         stronger = diffs_prompt + """
 
-IMPORTANT:
-- You MUST output one or more unified diffs inside ```diff fences.
-- Use headers exactly:  --- a/<path>   +++ b/<path>
-- Include @@ hunks with correct line numbers.
-- If a new file is required, use:  --- /dev/null   +++ b/<path>
-- DO NOT include any prose or explanation, only code blocks.
-"""
-        # Second attempt (fast=True often shortens the answer & speeds up)
+            IMPORTANT:
+            - You MUST output one or more unified diffs inside ```diff fences.
+            - Use headers exactly:  --- a/<path>   +++ b/<path>
+            - Include @@ hunks with correct line numbers.
+            - If a new file is required, use:  --- /dev/null   +++ b/<path>
+            - DO NOT include any prose or explanation, only code blocks.
+            """
+        # Second attempt
         try:
             raw2 = self.client.complete("coder_model", stronger, fast=True, verbose=self.verbose)
         except TypeError:
@@ -136,17 +134,19 @@ IMPORTANT:
 
         return raw2 or raw
 
-    # ---------------- main flow ----------------
+    # ---------------- MAIN Flow -----------------------------------------
 
     def run_once(self, propose_patches: bool = False):
-        # 1) Run tests
+
         print(Fore.CYAN + ">> Running contract tests..." + Style.RESET_ALL)
         t0 = time.time()
         test_out = self._run_tests()
         if self.verbose:
             print(f"[DEBUG] Tests exit={test_out['exit']} in {time.time()-t0:.1f}s")
 
-        # 2) Parse results
+
+        #Parsing the test reports ------------
+
         print(Fore.CYAN + ">> Parsing test reports..." + Style.RESET_ALL)
         parsed = parse_surefire_and_specmatic(
             self.repo_root / self.cfg["surefire_dir"],
@@ -155,7 +155,9 @@ IMPORTANT:
         if self.verbose:
             print("[DEBUG] Parsed summary chars:", len(parsed))
 
-        # 3) Gather context
+
+
+
         print(Fore.CYAN + ">> Collecting context..." + Style.RESET_ALL)
         code_ctx = snapshot_code(self.repo_root, [
             "src/main/java", "src/main/resources", "pom.xml",
@@ -167,7 +169,9 @@ IMPORTANT:
         if self.verbose:
             print("[DEBUG] code_ctx chars:", len(code_ctx), "| spec_ctx chars:", len(spec_ctx), "| cfg_ctx chars:", len(cfg_ctx))
 
-        # 4) LLM: summaries & suggestions
+
+        #LLM: summaries & suggestions ------------------
+
         prompts = build_prompts(parsed, code_ctx, spec_ctx, cfg_ctx)
         prompts = self._maybe_trim_for_fast(prompts)
 
@@ -183,7 +187,7 @@ IMPORTANT:
         print(Fore.CYAN + ">> Suggesting Specmatic config..." + Style.RESET_ALL)
         specmatic_suggestions = self._llm_call("planner_model", prompts["specmatic"], label="Specmatic suggestions")
 
-        # 5) Optional diffs (STRICT)
+        # diff part still needs work
         proposed_patches = {}
         if propose_patches:
             print(Fore.CYAN + ">> Asking for unified diffs..." + Style.RESET_ALL)
@@ -210,7 +214,8 @@ IMPORTANT:
                 if self.require_diffs:
                     raise RuntimeError("Require-diffs is enabled, but no diffs were produced by the model.")
 
-        # 6) Persist artifacts
+        # Save outputs -------------------------
+
         (self.output_dir / "summary.txt").write_text(llm_summary or "", encoding="utf-8")
         (self.output_dir / "api_suggestions.txt").write_text(api_suggestions or "", encoding="utf-8")
         (self.output_dir / "spec_suggestions.txt").write_text(spec_suggestions or "", encoding="utf-8")
